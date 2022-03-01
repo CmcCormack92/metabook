@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/metabook', {
+  useFindAndModify: false,
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

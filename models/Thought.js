@@ -1,8 +1,8 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
-const ReplySchema = new Schema(
+const ReactionSchema = new Schema(
     {
-      // set custom id to avoid confusion with parent comment _id
       reactionId: {
         type: Schema.Types.ObjectId,
         default: () => new Types.ObjectId()
@@ -44,11 +44,19 @@ const ThoughtSchema = new Schema(
         get: createdAtVal => dateFormat(createdAtVal)
     },
     username: {
-
+      type: String,
+      required: true
     },
     reactions: [ReactionSchema]
    }
 );
+
+ThoughtSchema.virtual('reactionCount').get(function() {
+  return this.reactions.reduce(
+    (total) => total + 1,
+    0
+  );
+});
 
 const Thought = model('Thought', ThoughtSchema);
 
