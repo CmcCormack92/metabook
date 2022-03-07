@@ -39,6 +39,6 @@
 
   [GitHub](https://github.com/CmcCormack92)
   
-  [GitHub Repo](https://github.com/CmcCormack92/metabook
+  [GitHub Repo](https://github.com/CmcCormack92/metabook)
 
   [Email](mailto:chrismack135@gmail.com)
